@@ -35,44 +35,45 @@ python preprocesamiento.py
 ```
     
 
-   El preprocesamiento consta de lo siguiente:
+El preprocesamiento consta de lo siguiente:
 
-    ```python
-    import pandas as pd
-    from normalizacionDelDataset import *
-    from construirValidation import dividir_dataset
-    from deNormalizar import deNormalizar
-    ```
+```python
+import pandas as pd
+from normalizacionDelDataset import *
+from construirValidation import dividir_dataset
+from deNormalizar import deNormalizar
+```
 
 * Importacion de pandas
 * Importacion de funciones de normalizacion
 * Importar el codigo para la separacion del trainning de validacion
 * Importar el codigo para la denormalizacion
 
-    ```python
-    training = '../dataset/train.data'
-    OBJETIVO_PARA_ENTRENAR = {
-        0: 100000,  # Nothing in hand
-        1: 100000,  # One pair
-        2: 30000,  # Two pairs
-        3: 30000,  # Three of a kind
-        4: 10000,  # Straight
-        5: 10000,  # Flush
-        6: 10000,  # Full house
-        7: 1000,  # Four of a kind
-        8: 100,  # Straight flush
-        9: 100   # Royal flush
-    }
-    ```
+```python
+training = '../dataset/train.data'
+OBJETIVO_PARA_ENTRENAR = {
+    0: 100000,  # Nothing in hand
+    1: 100000,  # One pair
+    2: 30000,  # Two pairs
+    3: 30000,  # Three of a kind
+    4: 10000,  # Straight
+    5: 10000,  # Flush
+    6: 10000,  # Full house
+    7: 1000,  # Four of a kind
+    8: 100,  # Straight flush
+    9: 100   # Royal flush
+}
+```
 Posteriormente, se cargan los datos de entrenamiento junto con los objetivos de balanceo (reducción y aumento de datos), los cuales se utilizarán para aplicar técnicas de oversampling y undersampling con el fin de mejorar el balance del dataset.
 
-    ```python
-        df_trainning = pd.read_csv(training, header=None)
-        df_trainning = quitarNull(df_trainning)
-        df_oversampleado = oversamplearDataset(df_trainning, OBJETIVO_PARA_ENTRENAR)
-        df_final = undersamplearDataset(df_oversampleado, OBJETIVO_PARA_ENTRENAR)
-        df_final, scaler = normalizarDataset(df_final)
-    ```
+```python
+    df_trainning = pd.read_csv(training, header=None)
+    df_trainning = quitarNull(df_trainning)
+    df_oversampleado = oversamplearDataset(df_trainning, OBJETIVO_PARA_ENTRENAR)
+    df_final = undersamplearDataset(df_oversampleado, OBJETIVO_PARA_ENTRENAR)
+    df_final, scaler = normalizarDataset(df_final)
+```
+
 El flujo de preprocesamiento aplicado al conjunto de datos consiste en varias etapas:
 
 1. Lectura del archivo CSV
@@ -83,9 +84,9 @@ El flujo de preprocesamiento aplicado al conjunto de datos consiste en varias et
 
 La normalización se realiza transformando los valores numéricos a un rango más manejable, por ejemplo, convirtiendo valores máximos como 4 y 13 a 1, lo que facilita el procesamiento por parte del modelo.
 
-    ```python
-        evaluacionDelBalanceoDelDataset(df_final)
-        df_final.to_csv('preprocessed_train.data', index=False, header=None)
+```python
+    evaluacionDelBalanceoDelDataset(df_final)
+    df_final.to_csv('preprocessed_train.data', index=False, header=None)
 
-    ```
+```
 Finalmente, se evalúa el balance del dataset para verificar la nueva distribución de clases y se guarda el conjunto preprocesado en un archivo .data.
