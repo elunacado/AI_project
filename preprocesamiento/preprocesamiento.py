@@ -1,9 +1,10 @@
 import pandas as pd
-from preprocesamiento.normalizacionDelDataset import *
-from preprocesamiento.construirValidation import dividir_dataset
+from normalizacionDelDataset import *
+from construirValidation import dividir_dataset
 
 training = '../dataset/train.data'
-
+validation = '../dataset/validation.data'
+test = '../dataset/test/poker-hand-testing.data'
 
 OBJETIVO_PARA_ENTRENAR = {
     0: 100000,  # Nothing in hand
@@ -18,14 +19,24 @@ OBJETIVO_PARA_ENTRENAR = {
     9: 100   # Royal flush
 }
 
+df_trainning = pd.read_csv(training, header=None, names=['S1','C1','S2','C2','S3','C3','S4','C4','S5','C5','CLASS'])
+df_validation = pd.read_csv(validation, header=None, names=['S1','C1','S2','C2','S3','C3','S4','C4','S5','C5','CLASS'])
+df_test = pd.read_csv(test, header=None, names=['S1','C1','S2','C2','S3','C3','S4','C4','S5','C5','CLASS'])
 
-df_trainning = pd.read_csv(training, header=None)
 df_trainning = quitarNull(df_trainning)
-df_oversampleado = oversamplearDataset(df_trainning, OBJETIVO_PARA_ENTRENAR)
-df_final = undersamplearDataset(df_oversampleado, OBJETIVO_PARA_ENTRENAR)
-df_final, scaler = normalizarDataset(df_final)
+df_validation = quitarNull(df_validation)
+df_test = quitarNull(df_test)
 
 
-evaluacionDelBalanceoDelDataset(df_final)
+#Oversampling y undersampling exclusivos para el dataset de entrenamiento.
+df_trainning = oversampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
+df_trainning = undersampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
 
-df_final.to_csv('preprocessed_train.data', index=False, header=None)
+def normalizaDataset(df, name_of_file):
+    df_normalizado, scaler, encoder = normalizarDataset(df_trainning)
+    df_normalizado.to_csv(f'preprocessed_{name_of_file}.data', index=False, header=False)
+    return df_normalizado, scaler, encoder
+
+normalizaDataset(df_trainning, 'trainning')
+normalizaDataset(df_validation, 'validation')
+normalizaDataset(df_test, 'test')

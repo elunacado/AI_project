@@ -1,8 +1,7 @@
 import pandas as pd
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.over_sampling import RandomOverSampler
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import MinMaxScaler,  OneHotEncoder
 
 def quitarNull(df):
     df = df.dropna()          
@@ -10,19 +9,26 @@ def quitarNull(df):
 
 def normalizarDataset(df):
     nombre_columna = df.columns[-1]
-    X = df.iloc[:, :-1]
+    x = df.iloc[:, :-1]
     y = df.iloc[:, -1]
 
-    # Escalar entre 0 y 1 respetando el rango real de cada columna
+    suit_cols = ['S1', 'S2', 'S3', 'S4', 'S5']
+    rank_cols = ['C1', 'C2', 'C3', 'C4', 'C5']
+
+    encoder = OneHotEncoder(sparse_output=False)
+    suit_encoded = encoder.fit_transform(x[suit_cols])
+    suit_encoded_cols = encoder.get_feature_names_out(suit_cols)
+    df_suits = pd.DataFrame(suit_encoded, columns=suit_encoded_cols)
+
     scaler = MinMaxScaler()
-    X_scaled = scaler.fit_transform(X)
+    rank_scaled = scaler.fit_transform(x[rank_cols])
+    df_ranks = pd.DataFrame(rank_scaled, columns=rank_cols)
 
-    df_normalizado = pd.DataFrame(X_scaled, columns=df.columns[:-1])
+    df_normalizado = pd.concat([df_suits, df_ranks], axis=1)
     df_normalizado[nombre_columna] = y.values
-    
-    print("=== NORMALIZADO!")
 
-    return df_normalizado, scaler
+    print("=== NORMALIZADO!")
+    return df_normalizado, scaler, encoder
 
 def evaluacionDelBalanceoDelDataset(df):
 
@@ -44,7 +50,7 @@ def evaluacionDelBalanceoDelDataset(df):
     print(f"\nRatio de desbalance: {ratio:.2f}:1")
     return porcentajes
 
-def undersamplearDataset(df, objetivo):
+def undersampling(df, objetivo):
     """
     Undersamplear: Reducir la cantidad de muestras de la clase mayoritaria
     para igualar a la clase minoritaria.
@@ -82,7 +88,7 @@ def undersamplearDataset(df, objetivo):
 
     return df_balanceado
 
-def oversamplearDataset(df, objetivo):
+def oversampling(df, objetivo):
     nombre_columna = df.columns[-1]
     X = df.iloc[:, :-1]
     y = df.iloc[:, -1]
