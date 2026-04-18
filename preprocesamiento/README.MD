@@ -89,6 +89,10 @@ El undersampling consiste en reducir el tamaño de la o las clases mayoritarias 
 Finalmente, se evalúa el balance del dataset para verificar la nueva distribución de clases y se guarda el conjunto preprocesado en un archivo .data.
 
 ## Biografia
+### Poker Dataset use
+https://walintonc.github.io/papers/ml_pokerhand.pdf
+
+
 ### Oversamling and Undersampling
 https://towardsdatascience.com/a-good-machine-learning-classifiers-accuracy-metric-for-the-poker-hand-dataset-44cc3456b66d/ 
 https://www.aluracursos.com/blog/como-lidiar-con-el-desbalanceo-de-datos
