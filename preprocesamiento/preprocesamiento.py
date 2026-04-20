@@ -19,6 +19,8 @@ OBJETIVO_PARA_ENTRENAR = {
     9: 100   # Royal flush
 }
 
+#dividir_dataset(training)
+
 df_trainning = pd.read_csv(training, header=None, names=['S1','C1','S2','C2','S3','C3','S4','C4','S5','C5','CLASS'])
 df_validation = pd.read_csv(validation, header=None, names=['S1','C1','S2','C2','S3','C3','S4','C4','S5','C5','CLASS'])
 df_test = pd.read_csv(test, header=None, names=['S1','C1','S2','C2','S3','C3','S4','C4','S5','C5','CLASS'])
@@ -32,11 +34,10 @@ df_test = quitarNull(df_test)
 df_trainning = oversampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
 df_trainning = undersampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
 
-def normalizaDataset(df, name_of_file):
-    df_normalizado, scaler, encoder = normalizarDataset(df_trainning)
-    df_normalizado.to_csv(f'preprocessed_{name_of_file}.data', index=False, header=False)
-    return df_normalizado, scaler, encoder
 
-normalizaDataset(df_trainning, 'trainning')
-normalizaDataset(df_validation, 'validation')
-normalizaDataset(df_test, 'test')
+df_trainning_normalizado, scaler, encoder = normalizarDatasetTrainning(df_trainning)
+df_trainning_normalizado.to_csv('preprocesamiento_trainning.data', index=False, header=False)
+df_validation_normalizado = normalizarDatasetValidationTest(df_validation, scaler, encoder)
+df_validation_normalizado.to_csv('preprocesamiento_validation.data', index=False, header=False)
+df_test_normalizado = normalizarDatasetValidationTest(df_test, scaler, encoder)
+df_test_normalizado.to_csv('preprocesamiento_test.data', index=False, header=False)

@@ -7,7 +7,7 @@ def quitarNull(df):
     df = df.dropna()          
     return df
 
-def normalizarDataset(df):
+def normalizarDatasetTrainning(df):
     nombre_columna = df.columns[-1]
     x = df.iloc[:, :-1]
     y = df.iloc[:, -1]
@@ -27,8 +27,28 @@ def normalizarDataset(df):
     df_normalizado = pd.concat([df_suits, df_ranks], axis=1)
     df_normalizado[nombre_columna] = y.values
 
-    print("=== NORMALIZADO!")
+    print("=== NORMALIZADO!_TRAINING ===")
     return df_normalizado, scaler, encoder
+
+def normalizarDatasetValidationTest(df, scaler, encoder):
+    nombre_columna = df.columns[-1]
+    x = df.iloc[:, :-1]
+    y = df.iloc[:, -1]
+
+    suit_cols = ['S1', 'S2', 'S3', 'S4', 'S5']
+    rank_cols = ['C1', 'C2', 'C3', 'C4', 'C5']
+
+    suit_encoded = encoder.transform(x[suit_cols])
+    df_suits = pd.DataFrame(suit_encoded, columns=encoder.get_feature_names_out(suit_cols))
+
+    rank_scaled = scaler.transform(x[rank_cols])
+    df_ranks = pd.DataFrame(rank_scaled, columns=rank_cols)
+
+    df_normalizado = pd.concat([df_suits, df_ranks], axis=1)
+    df_normalizado[nombre_columna] = y.values
+
+    print("=== NORMALIZADO!_VALIDATION/TEST ===")
+    return df_normalizado
 
 def evaluacionDelBalanceoDelDataset(df):
 

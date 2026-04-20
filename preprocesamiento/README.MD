@@ -2,7 +2,7 @@
 
 Se utilizó el siguiente dataset:
 
-Poker Hand Classification  
+**Poker Hand Classification**  
 https://www.kaggle.com/datasets/dysphorfia/poker-hand-classification
 
 ---
@@ -14,7 +14,7 @@ Para esta entrega se solicitó:
 - Seleccionar un dataset  
 - Realizar la separación de los datos  
 - Aplicar un proceso de preprocesamiento  
-- Preparar el dataset para ser utilizado posteriormente en un modelo 
+- Preparar el dataset para su uso en un modelo de aprendizaje automático  
 
 ---
 
@@ -23,9 +23,8 @@ Para esta entrega se solicitó:
 El archivo principal de preprocesamiento es:
 
 ```bash
-python preprocesamiento.py
+    python preprocesamiento.py 
 ```
-    
 
 El preprocesamiento consta de lo siguiente:
 
@@ -33,6 +32,13 @@ El preprocesamiento consta de lo siguiente:
 import pandas as pd
 from normalizacionDelDataset import *
 from construirValidation import dividir_dataset
+```
+
+Llamamos a los datasets y les asignamos variables para su uso a posteriori
+```python
+    training = '../dataset/train.data'
+    validation = '../dataset/validation.data'
+    test = '../dataset/test/poker-hand-testing.data'
 ```
 
 * Importacion de pandas
@@ -54,31 +60,60 @@ OBJETIVO_PARA_ENTRENAR = {
     9: 100   # Royal flush
 }
 ```
-Posteriormente, se cargan los datos de entrenamiento junto con los objetivos de balanceo (reducción y aumento de datos), los cuales se utilizarán para aplicar técnicas de oversampling y undersampling con el fin de mejorar el balance del dataset.
+Aqui dividariamos el dataset de training para generar el validation.data que procesaremos luego, sin embargo como ya realizamos esta accion comentaremos la linea 
+```pyhton
+    #dividir_dataset(training)
+
+```
+
+Posteriormente, se cargan los datos de entrenamiento, validation y test, de esta manera a
 
 ```python
-    df_trainning = pd.read_csv(training, header=None)
+    df_trainning = pd.read_csv(training, header=None, names=['S1','C1','S2','C2','S3','C3','S4','C4','S5','C5','CLASS'])
+    df_validation = pd.read_csv(validation, header=None, names=['S1','C1','S2','C2','S3','C3','S4','C4','S5','C5','CLASS'])
+    df_test = pd.read_csv(test, header=None, names=['S1','C1','S2','C2','S3','C3','S4','C4','S5','C5','CLASS'])
+
+  
+```
+
+Retiramos los valores de vacios de los datasets
+```python
     df_trainning = quitarNull(df_trainning)
-    df_oversampleado = oversamplearDataset(df_trainning, OBJETIVO_PARA_ENTRENAR)
-    df_final = undersamplearDataset(df_oversampleado, OBJETIVO_PARA_ENTRENAR)
-    df_final, scaler = normalizarDataset(df_final)
+    df_validation = quitarNull(df_validation)
+    df_test = quitarNull(df_test)
 ```
 
-El flujo de preprocesamiento aplicado al conjunto de datos consiste en varias etapas:
+Realizamos la tecnica de oversampling y undersampling, seguir leyendo para mas info de estas tecnicas de preprocesamiento 
+```python
+#Oversampling y undersampling exclusivos para el dataset de entrenamiento.
+df_trainning = oversampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
+df_trainning = undersampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
+```
 
-1. Lectura del archivo CSV
-2. Eliminación de filas con valores nulos
-3. Aplicación de oversampling para las clases minoritarias (principalmente de la clase 3 en adelante)
-4. Aplicación de undersampling para las clases mayoritarias (de la 0 a la 2), siempre considerando los valores   definidos en OBJETIVO_PARA_ENTRENAR
-5. Normalización de los datos
+## Preprocesamiento del dataset
 
-La normalización se realiza transformando los valores numéricos a un rango más manejable, por ejemplo, convirtiendo valores máximos como 4 y 13 a 1, lo que facilita el procesamiento por parte del modelo.
+En esta etapa se aplican transformaciones a los conjuntos de entrenamiento, validación y prueba con el objetivo de preparar los datos para el modelo de aprendizaje automático.
+
+Las técnicas utilizadas son:
+
+- **One-Hot Encoding** para las variables categóricas (S1–S5)
+- **Min-Max Scaling** para las variables numéricas (C1–C5)
+
+Se utilizan funciones separadas debido a que el método `fit()` de `sklearn` **solo debe aplicarse al conjunto de entrenamiento**, ya que es el que aprende los parámetros del preprocesamiento (categorías, mínimos y máximos).  
+Los conjuntos de validación y prueba únicamente aplican `transform()`, reutilizando dichos parámetros para evitar *data leakage*.
 
 ```python
-    evaluacionDelBalanceoDelDataset(df_final)
-    df_final.to_csv('preprocessed_train.data', index=False, header=None)
+df_trainning_normalizado, scaler, encoder = normalizarDatasetTrainning(df_trainning)
+df_trainning_normalizado.to_csv('preprocesamiento_trainning.data', index=False, header=False)
 
+df_validation_normalizado = normalizarDatasetValidationTest(df_validation, scaler, encoder)
+df_validation_normalizado.to_csv('preprocesamiento_validation.data', index=False, header=False)
+
+df_test_normalizado = normalizarDatasetValidationTest(df_test, scaler, encoder)
+df_test_normalizado.to_csv('preprocesamiento_test.data', index=False, header=False)
 ```
+
+
 ## Tecnicas de preprocesamiento utilizadas
 ### Oversampling
 Aumentar la cantidad de instancias de la clase minoritaria mediante la duplicacion de instancias aleatorias para brindarles una mayor presencia en el dataset
@@ -87,6 +122,12 @@ Aumentar la cantidad de instancias de la clase minoritaria mediante la duplicaci
 El undersampling consiste en reducir el tamaño de la o las clases mayoritarias del dataset mediante el recorte aleatorio del dataset de prueba, con el objetivo de balancear el dataset.
 
 Finalmente, se evalúa el balance del dataset para verificar la nueva distribución de clases y se guarda el conjunto preprocesado en un archivo .data.
+
+### Min-Max Scaler
+En el Min-Max Scaler alteramos los valores para colocarlos dentro del rango de 0 a 1, haciendo que todos los valores de la característica se escalen proporcionalmente entre su valor mínimo y máximo.
+
+### One Hot Encoding
+El One Hot Encoding es una técnica utilizada para transformar variables categóricas en variables numéricas, creando una nueva columna binaria por cada categoría posible.
 
 ## Biografia
 ### Poker Dataset use
