@@ -38,9 +38,6 @@ print(f"F1       : {f1_score(y, y_pred, average='macro', zero_division=0):.4f}")
 print("Instancias procesadas:", len(y))
 
 ```
-
-4. MATRIZ DE CONFUSIÓN
------------------------
 Se genera y visualiza una matriz de confusión con seaborn (heatmap en
 escala azul). Los ejes muestran las 10 clases con sus nombres en texto.
   - Eje Y (Real):     la clase verdadera de cada instancia.
@@ -67,6 +64,15 @@ plt.tick_params(axis='y', rotation=0)
 plt.tight_layout()
 plt.show()
 ```
+
+Los resultados de la baseline del algoritmo de clasificacion Naive-Bayes son los siguientes:
+
+Métricas del modelo Naive Bayes:
+Accuracy : 0.3405
+Recall   : 0.1990
+F1       : 0.0843
+Instancias procesadas: 291200
+
 
 Modelo NaiveBayes
 https://scikit-learn.org/stable/modules/naive_bayes.html
