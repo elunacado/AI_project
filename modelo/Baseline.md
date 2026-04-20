@@ -68,11 +68,12 @@ plt.show()
 Los resultados de la baseline del algoritmo de clasificacion Naive-Bayes son los siguientes:
 
 Métricas del modelo Naive Bayes:
-Accuracy : 0.3405
-Recall   : 0.1990
-F1       : 0.0843
-Instancias procesadas: 291200
+* Accuracy : 0.3405
+* Recall   : 0.1990
+* F1       : 0.0843
+* Instancias procesadas: 291200
 
 
 Modelo NaiveBayes
 https://scikit-learn.org/stable/modules/naive_bayes.html
+![confusion_matrix_naive_bayes](image.png)
