@@ -1,105 +1,104 @@
 Epoch 1/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 896us/step - accuracy: 0.4718 - loss: 1.0326 - val_accuracy: 0.0000e+00 - val_loss: 8.9597
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 675us/step - accuracy: 0.4158 - loss: 1.3730
 Epoch 2/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m6s[0m 846us/step - accuracy: 0.4947 - loss: 1.0082 - val_accuracy: 0.0000e+00 - val_loss: 11.5966
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m6s[0m 647us/step - accuracy: 0.4441 - loss: 1.2828
 Epoch 3/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m6s[0m 848us/step - accuracy: 0.4969 - loss: 1.0048 - val_accuracy: 0.0000e+00 - val_loss: 14.6886
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m6s[0m 703us/step - accuracy: 0.4629 - loss: 1.2274
 Epoch 4/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 1ms/step - accuracy: 0.5012 - loss: 1.0011 - val_accuracy: 0.0000e+00 - val_loss: 15.3457
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 854us/step - accuracy: 0.4849 - loss: 1.1683
 Epoch 5/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 960us/step - accuracy: 0.5096 - loss: 0.9923 - val_accuracy: 0.0000e+00 - val_loss: 16.6090
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 839us/step - accuracy: 0.5183 - loss: 1.0936
 Epoch 6/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m6s[0m 856us/step - accuracy: 0.5202 - loss: 0.9783 - val_accuracy: 0.0000e+00 - val_loss: 17.5873
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 848us/step - accuracy: 0.5602 - loss: 1.0097
 Epoch 7/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m6s[0m 862us/step - accuracy: 0.5262 - loss: 0.9688 - val_accuracy: 0.0000e+00 - val_loss: 18.8749
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 837us/step - accuracy: 0.5998 - loss: 0.9299
 Epoch 8/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 907us/step - accuracy: 0.5285 - loss: 0.9624 - val_accuracy: 0.0000e+00 - val_loss: 18.2719
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 764us/step - accuracy: 0.6323 - loss: 0.8588
 Epoch 9/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 1ms/step - accuracy: 0.5318 - loss: 0.9568 - val_accuracy: 3.2624e-04 - val_loss: 17.9593
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 902us/step - accuracy: 0.6645 - loss: 0.7859
 Epoch 10/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 1ms/step - accuracy: 0.5348 - loss: 0.9517 - val_accuracy: 8.0701e-04 - val_loss: 18.1517
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 804us/step - accuracy: 0.6962 - loss: 0.7170
 Epoch 11/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m9s[0m 1ms/step - accuracy: 0.5387 - loss: 0.9445 - val_accuracy: 0.0024 - val_loss: 18.3794
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 759us/step - accuracy: 0.7195 - loss: 0.6622
 Epoch 12/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 1ms/step - accuracy: 0.5448 - loss: 0.9343 - val_accuracy: 0.0020 - val_loss: 18.9857
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 763us/step - accuracy: 0.7408 - loss: 0.6143
 Epoch 13/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 941us/step - accuracy: 0.5527 - loss: 0.9205 - val_accuracy: 0.0027 - val_loss: 19.0700
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 784us/step - accuracy: 0.7558 - loss: 0.5814
 Epoch 14/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 1ms/step - accuracy: 0.5575 - loss: 0.9093 - val_accuracy: 0.0041 - val_loss: 18.4291
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 779us/step - accuracy: 0.7668 - loss: 0.5549
 Epoch 15/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m9s[0m 1ms/step - accuracy: 0.5608 - loss: 0.9024 - val_accuracy: 0.0094 - val_loss: 18.8594
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 785us/step - accuracy: 0.7755 - loss: 0.5351
 Epoch 16/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 1ms/step - accuracy: 0.5634 - loss: 0.8974 - val_accuracy: 0.0113 - val_loss: 19.7735
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 775us/step - accuracy: 0.7835 - loss: 0.5187
 Epoch 17/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 1ms/step - accuracy: 0.5686 - loss: 0.8905 - val_accuracy: 0.0086 - val_loss: 20.9212
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 790us/step - accuracy: 0.7917 - loss: 0.5000
 Epoch 18/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 1ms/step - accuracy: 0.5753 - loss: 0.8818 - val_accuracy: 0.0078 - val_loss: 20.9364
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 792us/step - accuracy: 0.8000 - loss: 0.4803
 Epoch 19/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 951us/step - accuracy: 0.5799 - loss: 0.8739 - val_accuracy: 0.0274 - val_loss: 21.4341
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 789us/step - accuracy: 0.8071 - loss: 0.4635
 Epoch 20/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 975us/step - accuracy: 0.5847 - loss: 0.8657 - val_accuracy: 0.0237 - val_loss: 22.2652
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 798us/step - accuracy: 0.8141 - loss: 0.4492
 Epoch 21/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 946us/step - accuracy: 0.5942 - loss: 0.8493 - val_accuracy: 0.0170 - val_loss: 21.9419
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 792us/step - accuracy: 0.8250 - loss: 0.4248
 Epoch 22/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 958us/step - accuracy: 0.6013 - loss: 0.8357 - val_accuracy: 0.0194 - val_loss: 23.0573
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 789us/step - accuracy: 0.8347 - loss: 0.4048
 Epoch 23/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 969us/step - accuracy: 0.6052 - loss: 0.8270 - val_accuracy: 0.0269 - val_loss: 22.5440
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 797us/step - accuracy: 0.8437 - loss: 0.3856
 Epoch 24/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 955us/step - accuracy: 0.6077 - loss: 0.8198 - val_accuracy: 0.0261 - val_loss: 22.3795
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 810us/step - accuracy: 0.8497 - loss: 0.3694
 Epoch 25/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 955us/step - accuracy: 0.6107 - loss: 0.8143 - val_accuracy: 0.0333 - val_loss: 22.7889
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 813us/step - accuracy: 0.8568 - loss: 0.3536
 Epoch 26/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 965us/step - accuracy: 0.6131 - loss: 0.8095 - val_accuracy: 0.0302 - val_loss: 23.2114
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 824us/step - accuracy: 0.8627 - loss: 0.3400
 Epoch 27/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 958us/step - accuracy: 0.6172 - loss: 0.8038 - val_accuracy: 0.0256 - val_loss: 21.7236
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m9s[0m 977us/step - accuracy: 0.8753 - loss: 0.3151
 Epoch 28/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 993us/step - accuracy: 0.6199 - loss: 0.7985 - val_accuracy: 0.0296 - val_loss: 21.9915
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 929us/step - accuracy: 0.8853 - loss: 0.2950
 Epoch 29/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 975us/step - accuracy: 0.6233 - loss: 0.7929 - val_accuracy: 0.0311 - val_loss: 21.4904
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 828us/step - accuracy: 0.8915 - loss: 0.2801
 Epoch 30/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 975us/step - accuracy: 0.6274 - loss: 0.7881 - val_accuracy: 0.0332 - val_loss: 20.5520
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 821us/step - accuracy: 0.8972 - loss: 0.2674
 Epoch 31/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 981us/step - accuracy: 0.6303 - loss: 0.7835 - val_accuracy: 0.0331 - val_loss: 20.8704
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 817us/step - accuracy: 0.9021 - loss: 0.2544
 Epoch 32/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 970us/step - accuracy: 0.6335 - loss: 0.7779 - val_accuracy: 0.0293 - val_loss: 21.4623
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 817us/step - accuracy: 0.9091 - loss: 0.2409
 Epoch 33/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 972us/step - accuracy: 0.6370 - loss: 0.7732 - val_accuracy: 0.0336 - val_loss: 21.6862
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 829us/step - accuracy: 0.9153 - loss: 0.2262
 Epoch 34/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 990us/step - accuracy: 0.6411 - loss: 0.7679 - val_accuracy: 0.0328 - val_loss: 21.7852
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 843us/step - accuracy: 0.9210 - loss: 0.2134
 Epoch 35/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 965us/step - accuracy: 0.6449 - loss: 0.7603 - val_accuracy: 0.0354 - val_loss: 21.1898
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 814us/step - accuracy: 0.9240 - loss: 0.2046
 Epoch 36/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 983us/step - accuracy: 0.6490 - loss: 0.7533 - val_accuracy: 0.0340 - val_loss: 20.9261
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 837us/step - accuracy: 0.9292 - loss: 0.1931
 Epoch 37/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 998us/step - accuracy: 0.6526 - loss: 0.7448 - val_accuracy: 0.0317 - val_loss: 20.8972
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 842us/step - accuracy: 0.9338 - loss: 0.1823
 Epoch 38/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 989us/step - accuracy: 0.6592 - loss: 0.7350 - val_accuracy: 0.0386 - val_loss: 21.1119
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 854us/step - accuracy: 0.9400 - loss: 0.1675
 Epoch 39/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 988us/step - accuracy: 0.6653 - loss: 0.7244 - val_accuracy: 0.0344 - val_loss: 21.5209
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m9s[0m 987us/step - accuracy: 0.9453 - loss: 0.1554
 Epoch 40/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 994us/step - accuracy: 0.6718 - loss: 0.7129 - val_accuracy: 0.0281 - val_loss: 20.9173
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m11s[0m 1ms/step - accuracy: 0.9536 - loss: 0.1377
 Epoch 41/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 985us/step - accuracy: 0.6787 - loss: 0.7006 - val_accuracy: 0.0345 - val_loss: 21.9415
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m10s[0m 1ms/step - accuracy: 0.9635 - loss: 0.1154
 Epoch 42/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 996us/step - accuracy: 0.6843 - loss: 0.6899 - val_accuracy: 0.0381 - val_loss: 20.9530
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 913us/step - accuracy: 0.9705 - loss: 0.0984
 Epoch 43/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 998us/step - accuracy: 0.6908 - loss: 0.6779 - val_accuracy: 0.0394 - val_loss: 21.6414
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 917us/step - accuracy: 0.9761 - loss: 0.0843
 Epoch 44/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 1ms/step - accuracy: 0.6965 - loss: 0.6675 - val_accuracy: 0.0338 - val_loss: 22.5711
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 930us/step - accuracy: 0.9801 - loss: 0.0750
 Epoch 45/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 1ms/step - accuracy: 0.7021 - loss: 0.6579 - val_accuracy: 0.0397 - val_loss: 23.1185
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m9s[0m 945us/step - accuracy: 0.9818 - loss: 0.0675
 Epoch 46/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 1ms/step - accuracy: 0.7057 - loss: 0.6503 - val_accuracy: 0.0313 - val_loss: 23.8818
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 898us/step - accuracy: 0.9845 - loss: 0.0587
 Epoch 47/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 1ms/step - accuracy: 0.7085 - loss: 0.6441 - val_accuracy: 0.0383 - val_loss: 24.5909
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m9s[0m 960us/step - accuracy: 0.9851 - loss: 0.0544
 Epoch 48/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 999us/step - accuracy: 0.7125 - loss: 0.6384 - val_accuracy: 0.0317 - val_loss: 25.6000
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m9s[0m 996us/step - accuracy: 0.9870 - loss: 0.0485
 Epoch 49/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m7s[0m 1ms/step - accuracy: 0.7162 - loss: 0.6314 - val_accuracy: 0.0324 - val_loss: 26.6256
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 920us/step - accuracy: 0.9865 - loss: 0.0488
 Epoch 50/50
-[1m7280/7280[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 1ms/step - accuracy: 0.7187 - loss: 0.6256 - val_accuracy: 0.0321 - val_loss: 26.8605
-[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m5s[0m 536us/step
-
-Accuracy : 0.5842
-Recall   : 0.2035
-F1       : 0.1869
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m8s[0m 895us/step - accuracy: 0.9875 - loss: 0.0456
+[1m9100/9100[0m [32m━━━━━━━━━━━━━━━━━━━━[0m[37m[0m [1m5s[0m 573us/step
+Accuracy : 0.9968
+Recall   : 0.9968
+F1       : 0.9975
