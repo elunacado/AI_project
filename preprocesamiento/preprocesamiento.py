@@ -5,7 +5,7 @@ from normalizacionDelDataset import *
 
 training = '../dataset/train.data'
 validation = '../dataset/validation.data'
-test = '../dataset/test/poker-hand-testing.data'
+test = '../dataset/test/test.data'
 
 OBJETIVO_PARA_ENTRENAR = {
     0: 100000,  # Nothing in hand
@@ -40,9 +40,8 @@ joblib.dump(scaler, "../modelo/mlp_raw/scaler.pkl")
 joblib.dump(encoder, "../modelo/mlp_raw/encoder.pkl")
 df_trainning_normalizado.to_csv('preprocesamiento_trainning.data', index=False, header=False)
 
-
-
-df_validation_normalizado = normalizarDataset(df_validation, scaler, encoder)
+df_validation_normalizado, scaler, encoder = normalizarDataset(df_validation)
 df_validation_normalizado.to_csv('preprocesamiento_validation.data', index=False, header=False)
-df_test_normalizado = normalizarDataset(df_test, scaler, encoder)
+
+df_test_normalizado, scaler, encoder = normalizarDataset(df_test)
 df_test_normalizado.to_csv('preprocesamiento_test.data', index=False, header=False)

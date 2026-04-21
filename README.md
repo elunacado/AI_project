@@ -31,8 +31,8 @@ Esta es mi entrega individual del proyecto de IA para el profesor Benjamin Vald√
         * MLP_raw.md <- la documentacion de la carpeta de mlp raw
 
 * resultados
-    * MLP_raw_Epoch50
-        * output.txt <- Output del accuracy, recall y F1 tras correr el entrenamiento del MLP sin los datos preprocesados
+    * MLP_raw_Epoch10
+        * output.txt <- Output del accuracy, recall y F1 tras correr el entrenamiento del MLP sin tener los datos preprocesados
     * Naive_Bayes
 
 * README.md <- **Estas aqui**
