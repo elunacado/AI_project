@@ -1,38 +1,81 @@
-# Detection of poker hands
-Esta es mi entrega individual del proyecto de IA para el profesor Benjamin Valdés Aguirre, el proyecto esta ordenado de la siguiente manera
+# 🃏 Detection of Poker Hands
 
-* dataset
-    * test
-        test.data <- Dataset de test sin preprocesar
-    train.data <- Dataset de train sin preprocesar
-    validation.data <- Dataset de validation sin preprocesar
-    * preprocesamiento <- Carpeta donde se realiza el preprocesamiento de los datos
-    * construirValidation.py <- codigo para la generacion del split de validation (no viene uno incluido en el dataset original)
-    * normalizacionsDelDataset.py <- noramlizacion del dataset mediante las tecnicas de Undersampling, Oversampling, One-Hot Encoding y Min-Max Scaler
-    * preprocesamiento.py <- Archivo donde se generan los datasets preprocesados utulizando las funciones previamente establecidas
-    * preprocesamiento_test.data -> el split de test preprocesado
-    * preprocesamiento_trainning.data -> el split de trainning preprocesado
-    * preprocesamiento_validation.data -> el split de validation normalizado
-    * preprocesamiento.md -> la documentacion de la carpeta de preprocesamiento
+Esta es mi entrega individual del proyecto de Inteligencia Artificial para el profesor **Benjamin Valdés Aguirre**.
+El proyecto está organizado de la siguiente manera:
 
-* modelo
-    * baseline: Definir una linea base utilizando el algoritmo de clasificacion Naive-Bayes
-        * baselineNaiveBayes.ipynb <- codigo donde se calcula la linea base utilizando el algoritmo de clasificacion Naive-Bayes
-        * image.png <- Imagen de la matriz de confusion (se utilizara en el .md)
-        * Baseline.md <- Documentacion de la linea base
+---
 
-    * mlp_raw: Modelo de regresion utilizando los datos originales del dataset
-        * MLP_raw.ipynb <- codigo donde se ejecuta el entrenamiento y exportacion del modelo MLP 
-        * modelo_poker_raw.keras <- modelo exportado
-        * pruebaDelMlp_raw.ipynb <- codigo para realizar queries al modelo
-        * encoder.pkl <- codificador para escalar el input del usuario de acuerdo a los requisitos de preprocesamiento del modelo (One-Hot-Encoder)
-        * scaler.pkl <- codificador para escalar el input del usuario de acuerdo a los requisitos de preprocesamiento del modelo (Min-Max Scaler)
-        * image.png <- Imagen de la matriz de confusion (se utilizara en el .md)
-        * MLP_raw.md <- la documentacion de la carpeta de mlp raw
+## 📁 Estructura del proyecto
 
-* resultados
-    * MLP_raw_Epoch10
-        * output.txt <- Output del accuracy, recall y F1 tras correr el entrenamiento del MLP sin tener los datos preprocesados
-    * Naive_Bayes
+### 🔹 dataset
 
-* README.md <- **Estas aqui**
+Contiene los datos originales sin preprocesar:
+
+* **test/**
+
+  * `test.data` → Dataset de prueba sin preprocesar
+* `train.data` → Dataset de entrenamiento sin preprocesar
+* `validation.data` → Dataset de validación sin preprocesar
+
+---
+
+### 🔹 preprocesamiento
+
+Carpeta donde se realiza todo el procesamiento de los datos:
+
+* `construirValidation.py` → Código para generar el split de validación (el dataset original no lo incluye)
+* `normalizacionDelDataset.py` → Normalización del dataset mediante:
+
+  * Undersampling
+  * Oversampling
+  * One-Hot Encoding
+  * Min-Max Scaler
+* `preprocesamiento.py` → Script principal para generar los datasets preprocesados
+* `preprocesamiento_test.data` → Dataset de prueba preprocesado
+* `preprocesamiento_training.data` → Dataset de entrenamiento preprocesado
+* `preprocesamiento_validation.data` → Dataset de validación preprocesado
+* `preprocesamiento.md` → Documentación del proceso de preprocesamiento
+
+---
+
+### 🔹 modelo
+
+#### 📌 baseline
+
+Definición de una línea base utilizando el algoritmo de clasificación **Naive Bayes**:
+
+* `baselineNaiveBayes.ipynb` → Código para calcular la línea base
+* `image.png` → Imagen de la matriz de confusión
+* `Baseline.md` → Documentación del baseline
+
+---
+
+#### 📌 mlp_raw
+
+Modelo de red neuronal (MLP) entrenado con los datos originales (sin preprocesamiento):
+
+* `MLP_raw.ipynb` → Entrenamiento y exportación del modelo
+* `modelo_poker_raw.keras` → Modelo entrenado exportado
+* `pruebaDelMlp_raw.ipynb` → Pruebas y consultas al modelo
+* `encoder.pkl` → Codificador One-Hot para procesar inputs
+* `scaler.pkl` → Escalador Min-Max para normalización
+* `image.png` → Matriz de confusión
+* `MLP_raw.md` → Documentación del modelo
+
+---
+
+### 🔹 resultados
+
+* **MLP_raw_Epoch10**
+
+  * `output.txt` → Resultados de accuracy, recall y F1 del MLP sin preprocesamiento
+
+* **Naive_Bayes**
+
+  * Resultados del modelo baseline
+
+---
+
+## 📍 Ethan Luna
+
+Entrega individual — Proyecto de Inteligencia Artificial
