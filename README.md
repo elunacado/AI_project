@@ -1,3 +1,5 @@
+# Detection of poker hands
+
 Esta es mi entrega individual del proyecto de IA para el profesor Benjamin Valdés Aguirre, el proyecto esta ordenado de la siguiente manera
 
 * dataset
