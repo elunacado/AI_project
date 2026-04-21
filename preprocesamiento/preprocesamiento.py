@@ -1,4 +1,5 @@
 import pandas as pd
+import joblib
 from normalizacionDelDataset import *
 from construirValidation import dividir_dataset
 
@@ -36,7 +37,12 @@ df_trainning = undersampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
 
 
 df_trainning_normalizado, scaler, encoder = normalizarDatasetTrainning(df_trainning)
+joblib.dump(scaler, "../modelo/baseline/scaler.pkl")
+joblib.dump(encoder, "../modelo/baseline/encoder.pkl")
 df_trainning_normalizado.to_csv('preprocesamiento_trainning.data', index=False, header=False)
+
+
+
 df_validation_normalizado = normalizarDatasetValidationTest(df_validation, scaler, encoder)
 df_validation_normalizado.to_csv('preprocesamiento_validation.data', index=False, header=False)
 df_test_normalizado = normalizarDatasetValidationTest(df_test, scaler, encoder)
