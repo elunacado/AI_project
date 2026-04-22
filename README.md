@@ -1,6 +1,10 @@
 # 🃏 Detection of Poker Hands
 
 Esta es mi entrega individual del proyecto de Inteligencia Artificial para el profesor **Benjamin Valdés Aguirre**.
+
+**Poker Hand Classification**  
+https://www.kaggle.com/datasets/dysphorfia/poker-hand-classification
+
 El proyecto está organizado de la siguiente manera:
 
 ---

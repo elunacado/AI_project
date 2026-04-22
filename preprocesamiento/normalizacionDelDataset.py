@@ -30,6 +30,33 @@ def normalizarDataset(df):
     print("=== NORMALIZADO! ===")
     return df_normalizado, scaler, encoder
 
+def normalizarQuery(df, scaler, encoder):
+     # Separar features y etiqueta
+    nombre_columna = df.columns[-1]
+    x = df.iloc[:, :-1]
+    y = df.iloc[:, -1]
+
+    # Columnas
+    suit_cols = ['S1', 'S2', 'S3', 'S4', 'S5']
+    rank_cols = ['C1', 'C2', 'C3', 'C4', 'C5']
+
+    # 🔹 One-Hot Encoding (SIN fit)
+    suit_encoded = encoder.transform(x[suit_cols])
+    suit_encoded_cols = encoder.get_feature_names_out(suit_cols)
+    df_suits = pd.DataFrame(suit_encoded, columns=suit_encoded_cols, index=df.index)
+
+    # 🔹 Escalado (SIN fit)
+    rank_scaled = scaler.transform(x[rank_cols])
+    df_ranks = pd.DataFrame(rank_scaled, columns=rank_cols, index=df.index)
+
+    # 🔹 Concatenar
+    df_final = pd.concat([df_suits, df_ranks], axis=1)
+
+    # 🔹 Agregar etiqueta
+    df_final[nombre_columna] = y.values
+
+    return df_final
+
 def undersampling(df, objetivo):
     """
     Undersamplear: Reducir la cantidad de muestras de la clase mayoritaria
