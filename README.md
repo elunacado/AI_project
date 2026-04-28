@@ -106,41 +106,42 @@ Los resultados los mediremos utilizando las medidas de:
 
 ### Que significan estos resultados
 Evaluemoslos: 
-Baseline:
+
+#### Baseline:
 Métricas del modelo Naive Bayes:
-Accuracy : 0.2254
-Recall   : 0.2021
-F1       : 0.0967
+* Accuracy : 0.2254
+* Recall   : 0.2021
+* F1       : 0.0967
 
 ![alt text](baseline.png)
 
-Modelo Raw:
-Accuracy : 0.9969
-Recall   : 0.6273
-F1       : 0.6530
+#### Modelo Raw:
+* Accuracy : 0.9969
+* Recall   : 0.6273
+* F1       : 0.6530
 
 ![alt text](raw.png)
 
-Modelo Curado:
-Accuracy : 0.3341
-Recall   : 0.2407
-F1       : 0.2188
+#### Modelo Curado:
+* Accuracy : 0.3341
+* Recall   : 0.2407
+* F1       : 0.2188
 
-Accuracy (val): 0.3444
-Recall   (val): 0.2680
-F1       (val): 0.2102
+* Accuracy (val): 0.3444
+* Recall   (val): 0.2680
+* F1       (val): 0.2102
 
 ![alt text](curado.png)
 
-Modelo Optimizado:
+#### Modelo Optimizado:
 
-Accuracy : 0.9246
-Recall   : 0.9141
-F1       : 0.9189
+* Accuracy : 0.9246
+* Recall   : 0.9141
+* F1       : 0.9189
 
-Accuracy (val): 0.8713
-Recall   (val): 0.9506
-F1       (val): 0.8756
+* Accuracy (val): 0.8713
+* Recall   (val): 0.9506
+* F1       (val): 0.8756
 
 ![alt text](optimizado.png)
 
