@@ -146,10 +146,18 @@ Métricas del modelo Naive Bayes:
 ![alt text](optimizado.png)
 
 Para empezar podemos ver la clara mejora en la matriz de confusion, la cual nos explica el como el modelo se va volviendo mas preciso tras el refinamiento de este. 
-En el modelo raw obtuvimos un gran accuracy por lo 
+
+En el modelo raw obtuvimos un gran accuracy a comparaciopn de las otras metricas por el desbalance del modelo, puesto a que detecta normalmente el High Card o One Pair "memorizando" esos resultados pues acierta la mayor cantidad de veces al elegirlos
+
+En el Curado, reducimos las clases de mayor volumen con el objetivo de que el modelo se concentre tambien en las de menor tamaño, pero este mismo esta aprendiendo demasiado lento, causando underfitting
+
+Por ultiimo en el Optimizado, utilizando los hiperparametros conseguimos refinar el modelo para que aprenda a un mejor paso y se comporte mejor ante datos que no haya visto todavia
 
 ### Conclusion
+En
 
+
+### Mejoras a Futuro
 
 ## 📍 Ethan Luna
 
