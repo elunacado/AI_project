@@ -14,7 +14,7 @@ Las clases son 10 tipos de manos de póker numeradas del 0 al 9:
   4: Straight         9: Royal Flush
 
 ```python
-df = pd.read_csv('../preprocesamiento/preprocessed_trainning.data', header=None)
+df = pd.read_csv('./train.data', header=None)
 x = df.iloc[:, :-1]
 y = df.iloc[:, -1]
 ```
@@ -75,7 +75,7 @@ Métricas del modelo Naive Bayes:
 * F1       : 0.0967
 * Instancias procesadas: 45312
 
-![confusion_matrix_naive_bayes](image.png)
+![alt text](image-1.png)
 
 Modelo NaiveBayes
 https://scikit-learn.org/stable/modules/naive_bayes.html

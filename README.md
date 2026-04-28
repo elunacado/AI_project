@@ -112,8 +112,7 @@ Métricas del modelo Naive Bayes:
 * Accuracy : 0.2254
 * Recall   : 0.2021
 * F1       : 0.0967
-
-![alt text](baseline.png)
+![alt text](image.png)
 
 #### Modelo Raw:
 * Accuracy : 0.6511
@@ -145,19 +144,19 @@ Métricas del modelo Naive Bayes:
 
 ![alt text](optimizado.png)
 
-Para empezar podemos ver la clara mejora en la matriz de confusion, la cual nos explica el como el modelo se va volviendo mas preciso tras el refinamiento de este. 
+Para empezar, podemos observar una clara mejora en la matriz de confusión, la cual nos muestra cómo el modelo se vuelve más preciso conforme se refina.
 
-En el modelo raw obtuvimos un gran accuracy a comparaciopn de las otras metricas por el desbalance del modelo, puesto a que detecta normalmente el High Card o One Pair "memorizando" esos resultados pues acierta la mayor cantidad de veces al elegirlos
+En el modelo raw, obtuvimos un alto accuracy en comparación con las otras métricas debido al desbalance del dataset. Esto ocurre porque el modelo tiende a predecir con mayor frecuencia las clases más comunes, como High Card o One Pair, “memorizando” estos resultados y acertando la mayoría de las veces al elegirlos.
 
-En el Curado, reducimos las clases de mayor volumen con el objetivo de que el modelo se concentre tambien en las de menor tamaño, pero este mismo esta aprendiendo demasiado lento, causando underfitting
+En el modelo curado, reducimos las clases con mayor volumen con el objetivo de que el modelo también se enfoque en las clases minoritarias. Sin embargo, esto provoca que el aprendizaje sea más lento, generando underfitting.
 
-Por ultiimo en el Optimizado, utilizando los hiperparametros conseguimos refinar el modelo para que aprenda a un mejor paso y se comporte mejor ante datos que no haya visto todavia
+Por último, en el modelo optimizado, mediante el uso de hiperparámetros adecuados, logramos refinar el entrenamiento para que el modelo aprenda a un ritmo más adecuado y tenga un mejor desempeño frente a datos no vistos.
 
 ### Conclusion
-En
-
+En conclusión, podemos comprobar que el éxito del modelo en este caso depende en gran medida de la reducción del dataset. Esto se debe a la naturaleza del póker, donde algunas categorías son muy abundantes y otras extremadamente raras. No obstante, mediante técnicas como el undersampling y el uso de hiperparámetros previamente ajustados, es posible alcanzar predicciones aceptables para la tarea.
 
 ### Mejoras a Futuro
+Una mejora que me gustaría implementar es el refinamiento en la detección de Straight Flush y Royal Flush. Debido a que su presencia es muy escasa, el modelo tiende a confundirlas con Flush. Por ello, sería interesante entrenar un modelo adicional que, al detectar un Flush, reevalúe las cartas para confirmar si se trata de un Straight Flush, un Royal Flush o clasificarlo correctamente en su categoría correspondiente.
 
 ## 📍 Ethan Luna
 
