@@ -44,14 +44,13 @@ history = modelo_tf.fit(
 
 # Resultados
 Los resultados son los siguientes
+Accuracy : 0.9246
+Recall   : 0.9141
+F1       : 0.9189
 
-Accuracy : 0.9012
-Recall   : 0.9476
-F1       : 0.9047
-
-Accuracy (val): 0.8308
-Recall   (val): 0.8452
-F1       (val): 0.7156
+Accuracy (val): 0.8713
+Recall   (val): 0.9506
+F1       (val): 0.8756
 
 # Matriz de confusion
 ![alt text](image.png)
