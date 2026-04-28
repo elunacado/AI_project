@@ -104,7 +104,7 @@ Los resultados los mediremos utilizando las medidas de:
 * F1: Mide el balance entre precisión y cobertura
 ---
 
-### Que significan estos resultados
+### Que significan estos resultados?
 Evaluemoslos: 
 
 #### Baseline:
@@ -116,11 +116,11 @@ Métricas del modelo Naive Bayes:
 ![alt text](baseline.png)
 
 #### Modelo Raw:
-* Accuracy : 0.9969
-* Recall   : 0.6273
-* F1       : 0.6530
+* Accuracy : 0.6511
+* Recall   : 0.1606
+* F1       : 0.1692
 
-![alt text](raw.png)
+![alt text](image.png)
 
 #### Modelo Curado:
 * Accuracy : 0.3341
@@ -144,6 +144,9 @@ Métricas del modelo Naive Bayes:
 * F1       (val): 0.8756
 
 ![alt text](optimizado.png)
+
+Para empezar podemos ver la clara mejora en la matriz de confusion, la cual nos explica el como el modelo se va volviendo mas preciso tras el refinamiento de este. 
+En el modelo raw obtuvimos un gran accuracy por lo 
 
 ### Conclusion
 

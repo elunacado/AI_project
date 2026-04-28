@@ -174,12 +174,11 @@ plt.tight_layout()
 plt.show()
 ```
 Los resultados del proimer modelo de prediccion utilizando un MLP y tras 50 epocas son los siguientes:
-* Accuracy : 0.9969
-* Recall   : 0.6273
-* F1       : 0.6530
+* Accuracy : 0.6511
+* Recall   : 0.1606
+* F1       : 0.1692
 
 ![alt text](image.png)
-
 Observacions:
   EStos resultados tan altos me preoucupan de overfitting usare validation para evaluarlo, el objetivo del siguiente entregable sera utilizar alguna arquitectura con la que se alcancen esos niveles de precision, recall y F1 sin la necesidad de 50 epocas de entrenamiento
 
