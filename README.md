@@ -120,7 +120,7 @@ Métricas del modelo Naive Bayes:
 * Recall   : 0.1606
 * F1       : 0.1692
 
-![alt text](image.png)
+![alt text](raw.png)
 
 #### Modelo Curado:
 * Accuracy : 0.3341
