@@ -15,9 +15,6 @@ OBJETIVO_PARA_ENTRENAR = {
     4: 10000,  # Straight
     5: 1000,  # Flush
     6: 1000,  # Full house
-    7: 1000,  # Four of a kind
-    8: 1000,  # Straight flush
-    9: 1000   # Royal flush
 }
 
 
@@ -30,8 +27,7 @@ df_validation = quitarNull(df_validation)
 df_test = quitarNull(df_test)
 
 
-#Oversampling y undersampling exclusivos para el dataset de entrenamiento.
-#df_trainning = oversampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
+
 df_trainning = undersampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
 
 

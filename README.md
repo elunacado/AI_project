@@ -29,7 +29,6 @@ Carpeta donde se realiza todo el procesamiento de los datos:
 
 * `construirValidation.py` → Código para generar el split de validación (el dataset original no lo incluye)
 * `normalizacionDelDataset.py` → Normalización del dataset mediante:
-
   * Undersampling
   * Oversampling
   * One-Hot Encoding
@@ -38,7 +37,8 @@ Carpeta donde se realiza todo el procesamiento de los datos:
 * `preprocesamiento_test.data` → Dataset de prueba preprocesado
 * `preprocesamiento_training.data` → Dataset de entrenamiento preprocesado
 * `preprocesamiento_validation.data` → Dataset de validación preprocesado
-* `preprocesamiento.md` → Documentación del proceso de preprocesamiento
+* `preprocesamiento.md` → Documentación del proceso de preprocesamiento [Preprocesamiento](preprocesamiento/preprocesamiento.md)
+* 
 
 ---
 
@@ -50,7 +50,7 @@ Definición de una línea base utilizando el algoritmo de clasificación **Naive
 
 * `baselineNaiveBayes.ipynb` → Código para calcular la línea base
 * `image.png` → Imagen de la matriz de confusión
-* `Baseline.md` → Documentación del baseline
+* `Baseline.md` → Documentación del baseline [Baseline](modelo/baseline/Baseline.md)
 
 ---
 
@@ -64,21 +64,51 @@ Modelo de red neuronal (MLP) entrenado con los datos originales (sin preprocesam
 * `encoder.pkl` → Codificador One-Hot para procesar inputs
 * `scaler.pkl` → Escalador Min-Max para normalización
 * `image.png` → Matriz de confusión
-* `MLP_raw.md` → Documentación del modelo
+* `MLP_raw.md` → Documentación del modelo raw[modelo_raw](modelo/mlp_raw/MLP_raw.md)
 
 ---
 
-### 🔹 resultados
+#### 📌 mlp_curado
+Modelo de red neuronal (MLP) entrenado con los preprocesados:
+* `MLP_curado.ipynb` → Entrenamiento y exportación del modelo
+* `modelo_poker_curado.keras` → Modelo entrenado exportado
+* `pruebaDeMLP_curado.ipynb` → Pruebas y consultas al modelo
+* `encoder.pkl` → Codificador One-Hot para procesar inputs
+* `scaler.pkl` → Escalador Min-Max para normalización
 
-* **MLP_raw_Epoch10**
+Este modelo no requiere de documentacion pues es una copia del modelo_raw, unicamente cambiando el dataset que utilizamos anteriormente por el dataset preprocesado
+---
 
-  * `output.txt` → Resultados de accuracy, recall y F1 del MLP sin preprocesamiento
+#### 📌 mlp_optimizado
+Modelo de red neuronal (MLP) entrenado con los preprocesados y hiperparametros ajustados de acuerdos al paper:
+https://walintonc.github.io/papers/ml_pokerhand.pdf
+* `MLP_optimizado.ipynb` → Entrenamiento y exportación del modelo
+* `modelo_poker_optimizado.keras` → Modelo entrenado exportado
+* `pruebaDeMlp_optimizado.ipynb` → Pruebas y consultas al modelo
+* `test.ipynb` → Utilizo el modelo entrenado para evaluarlo con test y ver que tal se comporta con datos que el modelo nunca ha visto
+* `encoder.pkl` → Codificador One-Hot para procesar inputs
+* `scaler.pkl` → Escalador Min-Max para normalización
+* modelo_poker_optimizado.keras
+  #### chckpnt
+  * `image.png` → Curva de aprendizaje (trainning accuracy vs validation accuracy)
+  * `finalModel.keras` → Modelo entrenado con los hiperparametros del paper, con el objetivo de utilizarlo en las queries que el profesor quiera probar en el la evaluacion del modelo
+  * `modelo_optimizado.md` → Documentación del modelo optimizado[modelo_raw](modelo/mlp_optimizado/modelo_optimizado.md)
 
-* **Naive_Bayes**
-
-  * Resultados del modelo baseline
 
 ---
+
+## Resultados
+Los resultados los mediremos utilizando las medidas de:
+* Accuracy: Mide la proporción de predicciones correctas respecto al total de predicciones realizadas.
+* Recall: Mide la capacidad del modelo para identificar correctamente todos los casos positivos de una clase.
+* F1: Mide el balance entre precisión y cobertura
+
+
+
+
+---
+
+
 
 ## 📍 Ethan Luna
 

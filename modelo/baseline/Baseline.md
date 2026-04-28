@@ -1,4 +1,5 @@
-Este script entrena y evalúa un modelo de clasificación Naive Bayes Gaussiano sobre un conjunto de datos de manos de póker. A continuación se describe cada sección:
+# Baseline Naive-Bayes
+Este script evalúa usa el algoritmo de clasificación Naive Bayes Gaussiano sobre un conjunto de datos de manos de póker. A continuación se describe cada sección:
 
 Se lee un archivo CSV preprocesado (preprocessed_trainning.data) que no tiene
 encabezado. Las columnas se dividen en:
@@ -65,15 +66,16 @@ plt.tight_layout()
 plt.show()
 ```
 
+## Resultados
 Los resultados de la baseline del algoritmo de clasificacion Naive-Bayes son los siguientes:
 
 Métricas del modelo Naive Bayes:
-* Accuracy : 0.3405
-* Recall   : 0.1990
-* F1       : 0.0843
-* Instancias procesadas: 291200
+* Accuracy : 0.2254
+* Recall   : 0.2021
+* F1       : 0.0967
+* Instancias procesadas: 45312
 
+![confusion_matrix_naive_bayes](image.png)
 
 Modelo NaiveBayes
 https://scikit-learn.org/stable/modules/naive_bayes.html
-![confusion_matrix_naive_bayes](image.png)

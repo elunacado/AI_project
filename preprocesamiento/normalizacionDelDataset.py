@@ -94,31 +94,3 @@ def undersampling(df, objetivo):
     print(f"Total después: {len(df_balanceado):,}")
 
     return df_balanceado
-
-def oversampling(df, objetivo):
-    nombre_columna = df.columns[-1]
-    X = df.iloc[:, :-1]
-    y = df.iloc[:, -1]
-
-    conteos = y.value_counts().sort_index()
-
-    estrategia = {
-        clase: meta
-        for clase, meta in objetivo.items()
-        if conteos.get(clase, 0) < meta
-    }
-
-    ros = RandomOverSampler(sampling_strategy=estrategia, random_state=42)
-    X_bal, y_bal = ros.fit_resample(X, y)
-
-    df_balanceado = pd.DataFrame(X_bal, columns=df.columns[:-1])
-    df_balanceado[nombre_columna] = y_bal
-
-    print("=== OVERSAMPLING ALEATORIO ===")
-    print("Clases aumentadas:")
-    for clase, meta in estrategia.items():
-        print(f"  Clase {clase}: {conteos.get(clase, 0):,} → {meta:,} muestras")
-    print(f"\nTotal antes:  {len(df):,}")
-    print(f"Total después: {len(df_balanceado):,}")
-
-    return df_balanceado

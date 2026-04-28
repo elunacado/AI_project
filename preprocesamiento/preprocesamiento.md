@@ -1,23 +1,3 @@
-## Dataset
-
-Se utilizó el siguiente dataset:
-
-**Poker Hand Classification**  
-https://www.kaggle.com/datasets/dysphorfia/poker-hand-classification
-
----
-
-## Objetivo de la entrega
-
-Para esta entrega se solicitó:
-
-- Seleccionar un dataset  
-- Realizar la separación de los datos  
-- Aplicar un proceso de preprocesamiento  
-- Preparar el dataset para su uso en un modelo de aprendizaje automático  
-
----
-
 ## Ejecución
 
 El archivo principal de preprocesamiento es:
@@ -46,19 +26,16 @@ Llamamos a los datasets y les asignamos variables para su uso a posteriori
 * Importar el codigo para la separacion del trainning de validacion
 
 ```python
-training = '../dataset/train.data'
 OBJETIVO_PARA_ENTRENAR = {
-    0: 100000,  # High Card
-    1: 100000,  # One pair
-    2: 30000,  # Two pairs
-    3: 30000,  # Three of a kind
+    0: 10000,  # Nothing in hand
+    1: 10000,  # One pair
+    2: 10000,  # Two pairs
+    3: 10000,  # Three of a kind
     4: 10000,  # Straight
-    5: 10000,  # Flush
-    6: 10000,  # Full house
-    7: 1000,  # Four of a kind
-    8: 100,  # Straight flush
-    9: 100   # Royal flush
+    5: 1000,  # Flush
+    6: 1000,  # Full house
 }
+
 ```
 Aqui dividariamos el dataset de training para generar el validation.data que procesaremos luego, sin embargo como ya realizamos esta accion comentaremos la linea 
 ```pyhton
@@ -85,9 +62,19 @@ Retiramos los valores de vacios de los datasets
 
 Realizamos la tecnica de oversampling y undersampling, seguir leyendo para mas info de estas tecnicas de preprocesamiento 
 ```python
-#Oversampling y undersampling exclusivos para el dataset de entrenamiento.
-df_trainning = oversampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
-df_trainning = undersampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
+    df_trainning = undersampling(df_trainning, OBJETIVO_PARA_ENTRENAR)
+
+```
+Exportamos el scaler y el encoder a sus respectivas carpetas ,con el objetivo de utilizarlos para noramlizar las queries de algun usuario
+```python
+    df_trainning_normalizado, scaler, encoder = normalizarDataset(df_trainning)
+    joblib.dump(scaler, "../modelo/mlp_raw/scaler.pkl")
+    joblib.dump(encoder, "../modelo/mlp_raw/encoder.pkl")
+    joblib.dump(scaler, "../modelo/mlp_curado/scaler.pkl")
+    joblib.dump(encoder, "../modelo/mlp_curado/encoder.pkl")
+    joblib.dump(scaler, "../modelo/mlp_optimizado/scaler.pkl")
+    joblib.dump(encoder, "../modelo/mlp_optimizado/encoder.pkl")
+
 ```
 
 ## Preprocesamiento del dataset
@@ -115,13 +102,51 @@ df_test_normalizado.to_csv('preprocesamiento_test.data', index=False, header=Fal
 
 
 ## Tecnicas de preprocesamiento utilizadas
-### Oversampling
-Aumentar la cantidad de instancias de la clase minoritaria mediante la duplicacion de instancias aleatorias para brindarles una mayor presencia en el dataset
 
 ### Undersampling
 El undersampling consiste en reducir el tamaño de la o las clases mayoritarias del dataset mediante el recorte aleatorio del dataset de prueba, con el objetivo de balancear el dataset.
 
 Finalmente, se evalúa el balance del dataset para verificar la nueva distribución de clases y se guarda el conjunto preprocesado en un archivo .data.
+
+```python
+    def undersampling(df, objetivo):
+        """
+        Undersamplear: Reducir la cantidad de muestras de la clase mayoritaria
+        para igualar a la clase minoritaria.
+        Se usara para las clases 0 a 2, (Nothing in hand, One pair, Two pairs)
+        que son las clases mas comunes en el dataset.
+        """
+        # Seleccionamos la columna final como y
+        # y luego el resto como x
+        nombre_columna = df.columns[-1]
+        X = df.iloc[:, :-1]
+        y = df.iloc[:, -1]
+
+        conteos = y.value_counts().sort_index()
+
+        # Solo aplicar undersampling a clases que necesitan bajar
+        estrategia_under = {
+            clase: meta
+            for clase, meta in objetivo.items()
+            if conteos.get(clase, 0) > meta
+        }
+
+        under = RandomUnderSampler(sampling_strategy=estrategia_under, random_state=42)
+        X_bal, y_bal = under.fit_resample(X, y)
+
+        # Crear un nuevo DataFrame con los datos balanceados
+        df_balanceado = pd.DataFrame(X_bal, columns=df.columns[:-1])
+        df_balanceado[nombre_columna] = y_bal
+
+        print("=== UNDERSAMPLING ===")
+        print("Clases reducidas:")
+        for clase, meta in estrategia_under.items():
+            print(f"  Clase {clase}: {conteos.get(clase, 0):,} → {meta:,} muestras")
+        print(f"\nTotal antes:  {len(df):,}")
+        print(f"Total después: {len(df_balanceado):,}")
+
+        return df_balanceado
+```
 
 ### Min-Max Scaler
 En el Min-Max Scaler alteramos los valores para colocarlos dentro del rango de 0 a 1, haciendo que todos los valores de la característica se escalen proporcionalmente entre su valor mínimo y máximo.
@@ -129,12 +154,38 @@ En el Min-Max Scaler alteramos los valores para colocarlos dentro del rango de 0
 ### One Hot Encoding
 El One Hot Encoding es una técnica utilizada para transformar variables categóricas en variables numéricas, creando una nueva columna binaria por cada categoría posible.
 
+```python
+    def normalizarDataset(df):
+        nombre_columna = df.columns[-1]
+        x = df.iloc[:, :-1]
+        y = df.iloc[:, -1]
+
+        suit_cols = ['S1', 'S2', 'S3', 'S4', 'S5']
+        rank_cols = ['C1', 'C2', 'C3', 'C4', 'C5']
+
+        encoder = OneHotEncoder(sparse_output=False)
+        suit_encoded = encoder.fit_transform(x[suit_cols])
+        suit_encoded_cols = encoder.get_feature_names_out(suit_cols)
+        df_suits = pd.DataFrame(suit_encoded, columns=suit_encoded_cols)
+
+        scaler = MinMaxScaler()
+        rank_scaled = scaler.fit_transform(x[rank_cols])
+        df_ranks = pd.DataFrame(rank_scaled, columns=rank_cols)
+
+        df_normalizado = pd.concat([df_suits, df_ranks], axis=1)
+        df_normalizado[nombre_columna] = y.values
+
+        print("=== NORMALIZADO! ===")
+        return df_normalizado, scaler, encoder
+```
+
+
 ## Biografia
-### Poker Dataset use
+### Poker Dataset
 https://walintonc.github.io/papers/ml_pokerhand.pdf
 
 
-### Oversamling and Undersampling
+### Undersampling
 https://towardsdatascience.com/a-good-machine-learning-classifiers-accuracy-metric-for-the-poker-hand-dataset-44cc3456b66d/ 
 https://www.aluracursos.com/blog/como-lidiar-con-el-desbalanceo-de-datos
 
